@@ -1,0 +1,375 @@
+I provided the solution here, Question is given at below link...
+
+Link : https://www.hackerrank.com/selection-statement
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+Question - 1 - Solution : Max of Two
+
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner sc = new Scanner(System.in);
+        
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        
+        if(a>b)
+        {
+            System.out.println(a);
+        }
+        else
+        {
+            System.out.println(b);
+        }
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+Question - 2 - Solution : Max of Three
+
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner sc = new Scanner(System.in);
+        
+        int a,b,c;
+        a = sc.nextInt();
+        b = sc.nextInt();
+        c = sc.nextInt();
+        
+        int largest = a;
+        
+        if(b>a)
+        {
+            largest = b;
+        }
+        
+        if(c>a)
+        {
+            largest = c;
+        }
+        
+        System.out.println(largest);
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+Question - 3 - Solution : Grade
+
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        int sub1,sub2,sub3,sub4,sub5;
+        
+        Scanner sc = new Scanner(System.in);
+        
+        sub1 = sc.nextInt();
+        sub2 = sc.nextInt();
+        sub3 = sc.nextInt();
+        sub4 = sc.nextInt();
+        sub5 = sc.nextInt();
+        
+        int sum = sub1 + sub2 + sub3 + sub4 + sub5;
+        int pr = (int)(sum / 5);
+        
+        if(pr >= 90)
+        {
+            System.out.println(pr);
+            System.out.println("A");
+        }
+        
+        else if(pr >= 80 && pr < 90)
+        {
+            System.out.println(pr);
+            System.out.println("B");
+        }
+        
+        else if(pr >= 70 && pr < 80)
+        {
+            System.out.println(pr);
+            System.out.println("C");
+        }
+        
+        else if(pr >= 60 && pr < 70)
+        {
+            System.out.println(pr);
+            System.out.println("D");
+        }
+        
+        else if(pr >= 40 && pr < 60)
+        {
+            System.out.println(pr);
+            System.out.println("E");
+        }
+        
+        else if(pr < 40)
+        {
+            System.out.println(pr);
+            System.out.println("F");
+        }
+    }
+}
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+Question - 4 - Solution : Which Month
+
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner sc = new Scanner(System.in);
+        int ch = sc.nextInt();
+        switch(ch)
+        {
+            case 1:
+                System.out.println("January");
+                break;
+                
+            case 2:
+                System.out.println("February");
+                break;
+        
+            case 3:
+                System.out.println("March");
+                break;
+            
+            case 4:
+                System.out.println("April");
+                break;
+                
+            case 5:
+                System.out.println("May");
+                break;
+                
+            case 6:
+                System.out.println("June");
+                break;
+                
+            case 7:
+                System.out.println("July");
+                break;
+                
+            case 8:
+                System.out.println("August");
+                break;
+                
+            case 9:
+                System.out.println("September");
+                break;
+                
+            case 10:
+                System.out.println("October");
+                break;
+                
+            case 11:
+                System.out.println("November");
+                break;
+                
+            case 12:
+                System.out.println("December");
+                break;
+                    
+            default:
+                System.out.println("Enter valid choice");
+                break;
+                
+        }
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+Question - 5 - Solution : Valid Triangle
+
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner sc = new Scanner(System.in);
+        
+        int a,b,c,sum;
+        a = sc.nextInt();
+        b = sc.nextInt();
+        c = sc.nextInt();
+        
+        sum = a+b+c;
+        
+        if(sum == 180)
+        {
+            System.out.println(1);
+        }
+        
+        else
+        {
+            System.out.println(0);
+        }
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+Question - 6 - Solution : Bank Account
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+Question - 7 - Solution : Divisible by two numbers
+
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        
+        Scanner sc = new Scanner(System.in);
+        
+        int a = sc.nextInt();
+        
+        if(a%5==0 && a%11 == 0)
+        {
+            System.out.println(1);
+        }
+        
+        else{
+            System.out.println(0);
+        }
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+Question - 8 - Solution : Which Triangle
+
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        
+        Scanner sc = new Scanner(System.in);
+        
+        int a,b,c;
+        
+        a = sc.nextInt();
+        b = sc.nextInt();
+        c = sc.nextInt();
+        
+        if(a==b && b==c)
+        {
+            System.out.println("equilateral");
+        }
+        
+        else if(a!=b && b!=c && a != c)
+        {
+            System.out.println("scalene");
+        }
+        
+        else
+        {
+            System.out.println("isosceles");
+        }
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+Question - 9 - Solution : Categorize Number
+
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        
+        Scanner sc = new Scanner(System.in);
+        
+        int num = sc.nextInt();
+
+        if(num > 0)
+        {
+                System.out.println(1);
+        }
+        
+        else if(num < 0)
+        {
+                System.out.println(-1);
+        }
+        
+        else
+        {
+                System.out.println(0);
+        }
+    }
+}
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+Question - 10 - Solution : Floor Value
+
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner sc = new Scanner(System.in);
+        
+        int a = sc.nextInt();
+        
+        int b = sc.nextInt();
+        
+        int c = (int)(a/b);
+        
+        System.out.println(c);
+
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------
