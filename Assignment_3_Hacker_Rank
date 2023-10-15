@@ -1,0 +1,893 @@
+I provided the solution here, Question is given at below link...
+
+Link : https://www.hackerrank.com/contests/loop-and-pattern/challenges/filters/page:1
+
+Date: 11/10/2023
+------------------------------------------------------------------------------------------------------------------------------------------------
+Question - 1 - Solution : Print N stars
+
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner sc = new Scanner(System.in);
+        
+        int i,n =  sc.nextInt();
+        
+        for(i=1;i<=n;i++)
+        {
+            System.out.print("*");
+        }
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+Question - 2 - Solution : Print a matrix of stars
+
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner sc = new Scanner(System.in);
+        
+        int n,m,i,j;
+        n = sc.nextInt();
+        m = sc.nextInt();
+        
+        for(i=1;i<=n;i++)
+        {
+            for(j=1;j<=m;j++)
+            {
+                    System.out.print("*");
+            }
+            
+            System.out.println();
+        }
+
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+Question - 3 - Solution : Stair Pattern 1
+
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        
+        Scanner sc = new Scanner(System.in);
+
+        int i,j,n = sc.nextInt();        
+        
+        for(i = 1;i<=n;i++)
+        {
+            for(j=1;j<=i;j++)
+            {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+Question - 4 - Solution : Skip Even Numbers Half Pyramid
+
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        
+        Scanner sc = new Scanner(System.in);
+
+        int i,j,n = sc.nextInt();
+
+        for(i=1;i<=n;i++)
+        {
+            for(j=1;j<=i;j++)
+            {
+//                 if (j > 1) 
+//                 {
+//                     System.out.print(" ");
+//                 }
+                
+//                 System.out.print((2 * j - 1));
+                
+                if(j%2==0)
+                {
+                    // System.out.print(" ");
+                    continue;
+                }
+                
+                else
+                {
+                    System.out.print(j+" ");
+                }
+            }
+            System.out.println();
+        }
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+Question - 5 - Solution : Two Line Star Pattern
+
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        
+        Scanner sc = new Scanner(System.in);
+
+        int i,j,n;
+        n = sc.nextInt();
+        
+        for(i=1;i<=n;i++)
+        {
+            System.out.print("*");
+            
+            for(j=1;j<=n-2;j++)
+            {
+                System.out.print(" ");
+            }
+            
+            System.out.print("*");
+            System.out.println();
+        }
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+Question - 6 - Solution : Leading spaces pyramid
+
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        
+        Scanner sc = new Scanner(System.in);
+
+        int i,j,k,n;
+        
+        n = sc.nextInt();
+        
+        for(i=1;i<=n;i++)
+        {
+            for(j=1;j<=n-i;j++)
+            {
+                System.out.print(" ");
+            }
+            
+            for(k=1;k<=i;k++)
+            {
+                System.out.print("*");
+            }
+            
+            System.out.println();
+        }
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+Question - 7 - Solution : From top to down
+
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        
+        Scanner sc = new Scanner(System.in);
+
+        int i,n;
+        n = sc.nextInt();
+
+        for(i=1;i<=n;i++)
+        {
+            System.out.print(i+" ");    
+        }
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+Question - 8 - Solution :Odd Game 1
+
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        
+        Scanner sc = new Scanner(System.in);
+
+        int i,n;
+        n = sc.nextInt();
+
+        for(i=1;i<=n;i++)
+        {
+            if(i%2 != 0)
+            {
+                System.out.print(i+" ");   
+            }
+        }
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+Question - 9 - Solution : Summation Game
+
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        
+        Scanner sc = new Scanner(System.in);
+
+        int i,sum=0,n = sc.nextInt();
+
+        
+        for(i=1;i<=n;i++)
+        {
+            sum += i;    
+        }
+        
+        System.out.println(sum);
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+Question - 10 - Solution : From down to top
+
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        
+        Scanner sc = new Scanner(System.in);
+
+        int i,n = sc.nextInt();
+
+        for(i = n;i>=1;i--)
+        {
+            System.out.print(i+" ");   
+        }
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+Question - 11 - Solution : Multiplication Table 52
+
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        
+        Scanner sc = new Scanner(System.in);
+        
+        int i,n = sc.nextInt();
+        
+        for(i=1;i<=10;i++)
+        {
+            System.out.println(n+" * "+i+" = "+n*i);
+        }
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+Question - 12 - Solution : Easy Power
+
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        
+        Scanner sc = new Scanner(System.in);
+        int a,b;
+        a = sc.nextInt();
+        b = sc.nextInt();
+        
+        System.out.println((int)(Math.pow(a,b)));
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+Question - 13 - Solution : Count factor
+
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        
+        int n,i,count=0;
+
+        Scanner sc = new Scanner(System.in);
+        n = sc.nextInt();
+        
+        for(i=1;i<=n;i++)
+        {
+            if(n%i==0)
+            {
+                count++;
+            }
+        }
+        
+        System.out.print(count);
+
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+Question - 14 - Solution : is it Prime? 2
+
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+
+        if (n > 1) {
+            boolean isPrime = true;
+            for (int i = 2; i * i <= n; i++) {
+                if (n % i == 0) {
+                    isPrime = false;
+                    break;
+                }
+            }
+
+            if (isPrime) {
+                System.out.println("YES");
+            } else {
+                System.out.println("NO");
+            }
+        } else {
+            System.out.println("NO");
+        }
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+Question - 15 - Solution : Is It Perfect? 1
+
+# Function to check if a number is perfect
+def is_perfect_number(N):
+    if N <= 1:
+        return False
+
+    # Initialize the sum of divisors to 1 (1 is always a divisor)
+    divisor_sum = 1
+
+    # Find all divisors of N and add them to the sum
+    for i in range(2, int(N**0.5) + 1):
+        if N % i == 0:
+            divisor_sum += i
+            if i != N // i:  # Avoid counting the same divisor twice
+                divisor_sum += N // i
+
+    # Check if the sum of divisors equals N
+    return divisor_sum == N
+
+# Input the number of test cases
+T = int(input())
+
+# Iterate through each test case
+for _ in range(T):
+    N = int(input())
+    if is_perfect_number(N):
+        print("YES")
+    else:
+        print("NO")
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+Question - 16 - Solution : Count the digits 2
+
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+    
+    public static int cndigit(int n)
+    {
+        int rem, count = 0;
+        
+        if(n==0||n==1)
+        {
+            count++;
+            
+            return count;
+        }
+            
+        while(n>0)
+        {
+            rem = n%10;
+            n = n/10;
+            count++;
+        }
+        
+        return count;
+    }
+    
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        
+        Scanner sc = new Scanner(System.in);
+        
+        int n,t,i;
+        t = sc.nextInt(); // take number of test cases
+        
+        for(i=1;i<=t;i++)
+        {
+            n = sc.nextInt(); // take number as input
+            System.out.println(cndigit(n));
+        }
+        
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+Question - 17 - Solution : Reverse integer 16
+
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        
+        Scanner sc = new Scanner(System.in);
+        int n,on;
+        n = sc.nextInt();
+        on = n;
+        
+        double INT32_MIN = Math.pow(-2,31);            // (-2**31 )  lower range of 32-bit integer
+        double INT32_MAX = Math.pow(2,31) - 1;            // (2**31 - 1)  higher range of 32-bit integer
+        
+        int last,rem,rev = 0;
+        
+        while(n!=0)
+        {
+            rem = n%10;
+            rev = rev*10 + rem;
+            n = n/10;
+        }
+     
+        
+        if(rev < INT32_MIN || rev > INT32_MAX)
+        {
+            System.out.println(0);
+        }
+        
+        System.out.println(rev);
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+Question - 18 - Solution : Armstrong Numbers!
+
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+    
+    public static int Armstrong(int n)
+    {
+        int sum = 0,digit,on=n;
+        
+        while(n!=0)
+        {
+            digit = n%10;
+            n = n/10;
+            sum += cube(digit);
+        }
+        
+        if(sum == on)
+        {
+            return sum;
+        }
+        
+        else
+        {
+            return 0;    
+        }
+    }
+    
+    public static int cube(int n)
+    {
+        return (n*n*n);
+    }
+    
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        
+        Scanner sc = new Scanner(System.in);
+        
+        int n,i,t;
+        n = sc.nextInt();
+        
+        for(i=1;i<=n;i++)
+        {
+            t = Armstrong(i);
+            
+            if(t==0)
+            {
+                continue;
+            }
+            
+            System.out.println(t);
+        }
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+Question - 19 - Solution : Print the Primes!
+
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+    
+    public static boolean isPrime(int n)
+    {
+        int i;
+        
+        if(n==1)
+        {
+            return false;
+        }
+        
+        for(i=2;i<=n/2;i++)
+        {
+            if(n%i==0)
+            {
+                return false;
+            }
+        }
+        
+        return true;
+    }
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        
+        Scanner sc = new Scanner(System.in);
+        int i,n;
+        n = sc.nextInt();
+
+        for(i=1;i<=n;i++)
+        {
+            if(isPrime(i))
+            {
+                System.out.println(i);
+            }
+            else
+            {
+                continue;    
+            }
+        }
+        
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+Question - 20 - Solution : LCM - Easy
+
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    
+    public static int Lcm(int a, int b)
+    {
+        int max;
+        
+        max = a>=b ? a : b;
+        
+        while(true)
+        {
+            if((max%a)==0 && (max%b)==0)
+            {
+                return max;
+            }
+            max++;
+        }
+    }
+    
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        
+        Scanner sc = new Scanner(System.in);
+        int a,b;
+        a = sc.nextInt();
+        b = sc.nextInt();
+        
+        System.out.println(Lcm(a,b));
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+Question - 21 - Solution : Palindromic Integer 2
+
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        
+        Scanner sc = new Scanner(System.in);
+        int n,on,rem,rev=0;
+        n = sc.nextInt();
+
+        on = n;
+        
+        while(n!=0)
+        {
+            rem = n%10;
+            rev = rev*10 + rem;
+            n = n/10;
+        }
+        
+        if(rev==on)
+        {
+            System.out.println("Yes");
+        }
+        
+        else
+        {
+            System.out.println("No");   
+        }
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+Question - 22 - Solution : Inverted Half Pyramid 1
+
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+         
+        Scanner sc = new Scanner(System.in);
+        int n;
+        n = sc.nextInt();
+        
+        int i,j;
+        
+        for(i=1;i<=n;i++)
+        {
+            for(j=1;j<=n+1-i;j++)
+            {
+                System.out.print("*");
+            }
+            
+            System.out.println();
+        }
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+Question - 23 - Solution : Leading spaces inverted pyramid
+
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        
+        Scanner sc = new Scanner(System.in);
+        int i,j,k,n;
+        n = sc.nextInt();
+        
+        for(i=1;i<=n;i++)
+        {
+            for(j=1;j<=i-1;j++)
+            {
+                System.out.print(" ");
+            }
+            
+            for(k=1;k<=n+1-i;k++)
+            {
+                System.out.print("*");
+            }
+            
+            System.out.println();
+        }
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+Question - 24 - Solution : Star Pattern II
+
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        
+        Scanner sc = new Scanner(System.in);
+        int n;
+        n = sc.nextInt();
+        
+        int i,j,k;
+        
+        for(i=1;i<=n;i++)
+        {
+            System.out.print("*");
+        }
+        
+        System.out.println();
+
+        for(j=1;j<=n-2;j++)
+        {
+            System.out.print("*");
+            for(k=1;k<=n-2-j;k++)
+            {
+                System.out.print(" ");
+            }
+            System.out.print("*");
+            System.out.println();
+        }
+        System.out.print("*");
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+Question - 25 - Solution : Photo Frame Pattern
+
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        
+        Scanner sc = new Scanner(System.in);
+        int n;
+        n = sc.nextInt();
+        
+        int i,j;
+        
+        for(i=1;i<=n;i++)
+        {
+            for(j=1;j<=n;j++)
+            {
+                if(i==1 || i==n || j==1 || j==n) 
+                {
+                     System.out.print("*");
+                } 
+                
+                else 
+                {
+                     System.out.print(" ");
+                }
+            }
+            
+             System.out.println();
+        }
+        
+        /*
+        // Other Solution but 1 test case shows wrong
+        
+        int n;
+        n = sc.nextInt();
+        
+        int i1,i2,j,k;
+        
+        for(i1=1;i1<=n;i1++)
+        {
+            System.out.print("*");
+        }
+        
+        System.out.println();
+        
+        for(j=1;j<=n-2;j++)
+        {
+            System.out.print("*");
+            for(k=1;k<=n-2;k++)
+            {
+                System.out.print(" ");
+            }
+            System.out.print("*");
+            System.out.println();
+        }
+        
+        for(i2=1;i2<=n;i2++)
+        {
+            System.out.print("*");
+        }
+        */
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------
