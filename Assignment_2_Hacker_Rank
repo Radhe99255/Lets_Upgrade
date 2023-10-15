@@ -243,6 +243,65 @@ public class Solution {
 
 Question - 6 - Solution : Bank Account
 
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+
+class Calculation
+{
+    public void credit(int N, int add)
+    {
+        int tamt = N;
+        
+        tamt += add;
+        
+        System.out.println(tamt);
+    }
+    
+    public void debit(int N, int req)
+    {
+        int tamt = N;
+        
+        if(req > tamt)
+        {
+            System.out.println("Insufficient Funds");
+        }
+        else
+        {
+            tamt -= req;
+            System.out.println(tamt);
+        }
+
+    }
+}
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner sc = new Scanner(System.in);
+        
+        int tamt = sc.nextInt();
+        
+        int type = sc.nextInt();
+        
+        int rs = sc.nextInt();
+        
+        Calculation cal = new Calculation();
+        
+        if(type == 1 && rs <= 100000)
+        {
+            cal.credit(tamt,rs);
+        }
+        if(type == 2 && rs <= 100000)
+        {
+            cal.debit(tamt,rs);
+        }
+    }
+}
 ------------------------------------------------------------------------------------------------------------------------------------------------
 
 Question - 7 - Solution : Divisible by two numbers
