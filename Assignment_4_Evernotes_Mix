@@ -1,0 +1,102 @@
+Link of evernote & all questions is given below.
+
+Link - https://www.evernote.com/shard/s511/sh/b09b90d6-50d0-61b9-fc4c-5558d86aa5a6/SXorKyGG1AQsDglyoRtjw0xMmOjpi4eZ2kFmFoKacgvELsgUWq47Xj0Ybw
+
+Date: 13/10/2023
+------------------------------------------------------------------------------------------------------------------------------------------------
+Question - 1 => Rotate Array :  https://leetcode.com/problems/rotate-array/
+
+Solution: https://leetcode.com/problems/rotate-array/submissions/
+
+class Solution {
+
+    public void reverce(int[] nums,int start,int end)
+    {
+        while(start<end)
+        {
+            int temp = nums[start];
+            nums[start] = nums[end];
+            nums[end] = temp;
+            start++;
+            end--;
+        }
+    }
+
+    public void rotate(int[] nums, int k) {
+        
+        k = k%nums.length; // it transform all rotation into minimum intration
+
+        int n = nums.length;
+        
+        reverce(nums, 0, n-1);
+        reverce(nums, 0, k-1);
+        reverce(nums, k, n-1);
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+Question - 2 => Removing Minimum and Maximum From Array: https://leetcode.com/problems/removing-minimum-and-maximum-from-array/description/
+
+Solution: https://leetcode.com/problems/removing-minimum-and-maximum-from-array/submissions/
+
+class Solution {
+    public int minimumDeletions(int[] nums) {
+        int max_index = 0;
+        int min_index = 0;
+        int n = nums.length;
+
+        for (int i = 1; i < n; i++) {
+            if (nums[i] > nums[max_index])
+                max_index = i;
+
+            if (nums[i] < nums[min_index])
+                min_index = i;
+        }
+        // 3 cases
+        // - both delete from left
+        // - both delete from right
+        // - right and left together
+
+        // delete from left side
+        int rightmost = Math.max(max_index, min_index);
+        int del_from_left = rightmost + 1;
+
+        // delete from right side
+        int leftmost = Math.min(max_index, min_index);
+        int del_from_right = n - leftmost;
+
+        // from both sides
+        int del_from_both = (n - rightmost) + (leftmost + 1);
+
+        // return which is the min distance out of 3 cases
+        return Math.min(Math.min(del_from_left, del_from_right),del_from_both);
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+Question - 3 => Reverse String: https://leetcode.com/problems/reverse-string/description/
+
+Solution: https://leetcode.com/problems/reverse-string/submissions/
+
+class Solution {
+    public void reverseString(char[] s) {
+        int i=0;
+        char temp=0;
+        
+        int j=s.length-1;
+
+        while(i<j)
+        {
+            temp=s[i];
+            s[i]=s[j];
+            s[j]=temp;
+            i++;
+            j--;
+        }
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+Question - 4 => 
+
+Solution: 
