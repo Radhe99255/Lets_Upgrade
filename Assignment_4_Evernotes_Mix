@@ -221,6 +221,49 @@ Expected Output 5:
 You can test your code against these test cases and verify if the output matches the expected results.
 
 Solution: 
+
+import java.util.Scanner;
+
+public class Solution {
+    public static void main(String[] args) {
+        
+        Scanner sc = new Scanner(System.in);
+        int t,b,n,flag = 0;
+
+        int[] arr = new int[100];
+        
+        System.out.print("\nEnter the number of Test Cases: ");
+        t = sc.nextInt();
+
+        for (int i = 1; i <= t; i++) 
+        {
+            System.out.print("\nEnter the size of an Array: ");
+            n = sc.nextInt();
+            System.out.println("\nEnter the elements in Array...");
+            for (int j = 0; j < n; j++) {
+                arr[j] = sc.nextInt();
+            }
+
+            System.out.print("\nEnter the number that you want to search: ");
+            b = sc.nextInt();
+
+            for (int k = 0; k < n; k++) 
+            {
+                if(b==arr[k])
+                {
+                    System.out.println(1);
+                    flag = 1;
+                    break;
+                }    
+            }
+
+            if(flag==0)
+            {
+                System.out.println(0);
+            }
+        }
+    }
+}
 ------------------------------------------------------------------------------------------------------------------------------------------------
 
 Question - 5 => Problem Description
@@ -271,11 +314,53 @@ Explanation 2:
 There is no second largest element in the array.
 
 Solution: 
+
+public class Solution {
+    public static void main(String[] args) {
+        
+        // you can enter array accoring to you
+        int arr[] = { 12, 35, 1, 10, 34, 1 }; 
+        int n = arr.length; 
+          
+        int i,second;
+        
+        // There should be atleast two elements 
+        if (n < 2) 
+        { 
+            System.out.printf(" Invalid Input "); 
+            return; 
+        } 
+    
+        int largest = second = Integer.MIN_VALUE; 
+
+        // Find the largest element 
+        for(i = 0; i < n; i++) 
+        { 
+            largest = Math.max(largest, arr[i]); 
+        } 
+    
+        // Find the second largest element 
+        for(i = 0; i < n; i++) 
+        { 
+            if (arr[i] != largest) 
+                second = Math.max(second, arr[i]); 
+        } 
+        if (second == Integer.MIN_VALUE) 
+        {
+            System.out.printf("There is no second " + "largest element\n"); 
+        }
+
+        else
+        {
+            System.out.printf("The second largest " + "element is %d\n", second); 
+        }
+    }
+}
 ------------------------------------------------------------------------------------------------------------------------------------------------
 
 Question - 6 => Problem Description
 
-You are given an array of integers A of size N.Return the difference between the maximum among all even numbers of A and the minimum among all odd numbers in A.
+You are given an array of integers A of size N. Return the difference between the maximum among all even numbers of A and the minimum among all odd numbers in A.
 
 Problem Constraints
 
@@ -374,7 +459,62 @@ Explanation:
 - Since there is no odd number, the result is 20 - 0 = 20.
 
 These test cases cover scenarios where there are different combinations of even and odd numbers in the array A, ensuring the code handles them correctly and produces the expected output.
+
 Solution: 
+
+public class Solution {
+    public static void main(String[] args) {
+        
+        // you can enter array accoring to you
+        int arr[] = {0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20}; 
+        
+        int odd,even,min_odd,largest_even,diff;
+        
+        even = 0;
+        largest_even = Integer.MIN_VALUE;
+        
+        odd = 0;
+        min_odd =Integer.MAX_VALUE;
+
+        for (int i = 0; i < arr.length; i++) 
+        {
+            if(arr[i]%2 == 0)
+            {
+                even = arr[i];
+
+                if(even > largest_even)
+                {
+                    largest_even = even;
+                }
+            }
+
+            else
+            {
+                odd = arr[i];
+
+                if(odd < min_odd)
+                {
+                    min_odd = odd;
+                }
+            }
+        }
+
+        if(largest_even == Integer.MIN_VALUE)
+        {
+            largest_even = 0;
+        }
+
+        if(min_odd == Integer.MAX_VALUE)
+        {
+            min_odd = 0;
+        }
+
+        diff = largest_even - min_odd;
+
+        System.out.println("Difference = "+diff);
+
+    }
+}
 ------------------------------------------------------------------------------------------------------------------------------------------------
 
 Question - 7 => Problem Description
@@ -459,7 +599,323 @@ Even elements in the array(in the order they occur) are: 2, 2, 2.
 Test Case 2
 Odd elements in the array(in the order they occur) are: 1, 1.
 There are no even elements in the array.
+
 Solution: 
+
+import java.util.Scanner;
+
+public class Solution {
+    public static void main(String[] args) {
+        
+        Scanner sc = new Scanner(System.in);
+        int t,n;
+
+        int[] arr = new int[100];
+
+        int evenarr[] = new int[100];
+        int oddarr[] = new int[100];
+        
+        System.out.print("\nEnter the number of Test Cases: ");
+        t = sc.nextInt();
+
+        for (int i = 1; i <= t; i++) 
+        {
+            int odd=0,even=0;
+            
+            System.out.print("\nEnter the size of an Array: ");
+            n = sc.nextInt();
+
+            System.out.println("\nEnter the elements in Array...");
+            for (int j = 0; j < n; j++) 
+            {
+                arr[j] = sc.nextInt();
+
+                if(arr[j] % 2 == 0)
+                {
+                    evenarr[even] = arr[j];
+                    even++;
+                }
+
+                else
+                {
+                    oddarr[odd] = arr[j];
+                    odd++;
+                }
+            }
+
+            
+            System.out.println("\nOdd elements are...");
+            for (int k2 = 0; k2 < odd; k2++) 
+            {
+                System.out.print(oddarr[k2]+" ");
+            }
+            
+            System.out.println("\nEven elements are...");
+            for (int k1 = 0; k1 < even; k1++) 
+            {
+                System.out.print(evenarr[k1]+" ");
+            }
+            System.out.println();
+        }
+    }
+}
 ------------------------------------------------------------------------------------------------------------------------------------------------
 
-Question - 8 => Problem Description
+Question - 8 => https://www.interviewbit.com/problems/multiple-left-rotations-of-the-array/
+
+Solution:
+
+public class RotateArray {
+    public static int[][] solve(int[] A, int[] B) {
+        int n = A.length;
+        int m = B.length;
+        int[][] result = new int[m][];
+
+        for (int i = 0; i < m; i++) {
+            int rotations = B[i] % n;
+            result[i] = new int[n];
+
+            for (int j = 0; j < n; j++) {
+                result[i][j] = A[(j + rotations) % n];
+            }
+        }
+
+        return result;
+    }
+
+    public static void main(String[] args) {
+        int[] A1 = {1, 2, 3, 4, 5};
+        int[] B1 = {2, 3};
+        int[][] result1 = solve(A1, B1);
+
+        for (int[] row : result1) {
+            for (int val : row) {
+                System.out.print(val + " ");
+            }
+            System.out.println();
+        }
+
+        int[] A2 = {5, 17, 100, 11};
+        int[] B2 = {1};
+        int[][] result2 = solve(A2, B2);
+
+        for (int[] row : result2) {
+            for (int val : row) {
+                System.out.print(val + " ");
+            }
+            System.out.println();
+        }
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+Question - 9 => Problem Description
+
+Given an integer array A of size N and an integer B, you have to print the same array after rotating it B times towards the right.
+
+Problem Constraints
+
+1 <= N <= 1061 <= A[i] <=1081 <= B <= 109
+
+Input Format
+
+There are 2 lines in the inputLine 1: The first number is the size N of the array A. Then N numbers follow which indicate the elements in the array A.Line 2: A single integer B.
+
+Output Format
+
+Print array A after rotating it B times towards the right.
+
+Example Input
+
+Input 1 :
+4 1 2 3 4
+2
+
+Example Output
+
+Output 1 :
+3 4 1 2
+
+Example Explanation
+
+Example 1 :N = 4, A = [1, 2, 3, 4] and B = 2.Rotate towards the right 2 times - [1, 2, 3, 4] => [4, 1, 2, 3] => [3, 4, 1, 2]Final array = [3, 4, 1, 2]
+
+
+Solution:
+
+import java.util.Scanner;
+
+public class Solution {
+
+    public static void reverce(int[] arr,int start,int end)
+    {
+        while(start<end)
+        {
+            int temp = arr[start];
+            arr[start] = arr[end];
+            arr[end] = temp;
+            start++;
+            end--;
+        }
+    }
+
+    public static void rotate(int[] arr, int k) {
+        
+        k = k%arr.length; // it transform all rotation into minimum intration
+
+        int n = arr.length;
+        
+        reverce(arr, 0, n-1);
+        reverce(arr, 0, k-1);
+        reverce(arr, k, n-1);
+    }
+    public static void main(String[] args) {
+        
+        Scanner sc = new Scanner(System.in);
+
+        int arr[] = {1, 2, 3, 4};
+
+        System.out.print("\nEnter the number of roration: ");
+        int b = sc.nextInt();
+
+        rotate(arr, b);
+
+        for (int i = 0; i < arr.length; i++) 
+        {
+            System.out.print(arr[i]+" ");
+        }
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+Question - 10 => Problem Description
+
+Given an array A and an integer B. A pair(i, j) in the array is a good pair if i != j and (A[i] + A[j] == B). Check if any good pair exist or not.
+
+Problem Constraints
+
+1 <= A.size() <= 104
+
+1 <= A[i] <= 109
+
+1 <= B <= 109
+
+
+Input Format
+
+First argument is an integer array A.
+
+Second argument is an integer B.
+
+
+Output Format
+
+Return 1 if good pair exist otherwise return 0.
+
+Example Input
+
+Input 1:
+
+
+
+A = [1,2,3,4]
+B = 7
+
+Input 2:
+
+
+
+A = [1,2,4]
+B = 4
+
+Input 3:
+
+
+A = [1,2,2]
+B = 4
+
+
+Example Output
+
+Output 1:
+
+1
+Output 2:
+
+0
+Output 3:
+
+1
+
+
+Example Explanation
+
+Explanation 1:
+
+(i,j) = (3,4)
+Explanation 2:
+
+No pair has sum equal to 4.
+Explanation 3:
+
+(i,j) = (2,3)
+
+
+Solution:
+
+import java.util.Scanner;
+
+public class Solution {
+    public static void main(String[] args) {
+        
+        int arr[] = {1, 2, 2};
+
+        int b = 4;
+
+        int flag = 0; 
+
+        for (int i = 0; i < arr.length; i++) 
+        {
+            for (int j = i+1; j < arr.length; j++) 
+            {
+                if(arr[i] + arr[j] == b)
+                {
+                    System.out.print(1);
+                    flag = 1;
+                    break;
+                }
+            }  
+        }
+
+        if(flag==0)
+        {
+            System.out.print(0);
+        }
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+Question - 11 => https://leetcode.com/problems/number-of-good-pairs/
+
+Solution: => https://leetcode.com/problems/number-of-good-pairs/submissions/
+
+class Solution {
+    public int numIdenticalPairs(int[] nums) {
+        
+        int count=0;
+        
+        for (int i = 0; i < nums.length; i++) 
+        {
+            for (int j = i+1; j < nums.length; j++) 
+            {
+                if(nums[i] == nums[j] && i<j)
+                {
+                    count++;
+                }
+            }  
+        }
+
+        return count;
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------
