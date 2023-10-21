@@ -4,6 +4,308 @@ Link - https://www.evernote.com/shard/s511/sh/88a28bb2-265e-896b-588c-8349ba9f09
 
 Date: 16/10/2023
 ------------------------------------------------------------------------------------------------------------------------------------------------
-Question - 1 => Rotate Array :  https://leetcode.com/problems/rotate-array/
+Question - 1 => Equilibrium Index Element : https://www.interviewbit.com/problems/balance-array/
 
-Solution: https://leetcode.com/problems/rotate-array/submissions/
+Solution: https://www.interviewbit.com/problems/balance-array/
+
+=> it is half solution & some what is remaining
+
+public class Solution {
+    public int solve(int[] A) {
+        
+        
+        int n = A.length;
+        
+        int PF[] = new int[n];
+        int i;
+        
+        PF[0] = A[0];
+        for(i=1;i<n;i++)
+        {
+            PF[i] = PF[i-1] + A[i];
+        }    
+    
+        
+        // calculate the even prifix sum
+        int evenPF[] = new int[n];
+        int j,sum1=0;
+        for(j=0;j<n;j++)
+        {
+            if (j % 2 == 0) // Check if the index is even
+            { 
+                sum1 += A[i];
+            }
+            evenPF[i] = sum1;
+        }
+        
+        // calculate the even prifix sum
+        int oddPF[] = new int[n];
+        int k,sum2=0;
+        for(k=0;k<n;k++)
+        {
+            if (k % 2 != 0) // Check if the index is odd
+            { 
+                sum2 += A[i];
+            }
+            oddPF[i] = sum2;
+        }
+        
+        int t,count=0,evensum=0,oddsum=0;
+        
+        for(t=0;t<n;t++)
+        {
+            // how to handle this index = 0 case????
+            if(t==0)
+            {
+                evenPF[0] = A[0];
+                oddPF[0] = A[0];
+            }
+            evensum = evenPF[t-1] + (oddPF[n-1] - oddPF[i]);
+            oddsum = oddPF[i-1] + (evenPF[n-1] - evenPF[i]);
+            if(evensum == oddsum)
+            {
+                count++;
+            }
+        }
+        
+        return count;
+        
+        
+        
+        /*
+        int n = A.length;
+        int[] evenPrefixSum = new int[n + 1];
+        int[] oddPrefixSum = new int[n + 1];
+
+        // Calculate prefix sums for even and odd indices
+        for (int i = 0; i < n; i++) {
+            evenPrefixSum[i + 1] = evenPrefixSum[i] + (i % 2 == 0 ? A[i] : 0);
+            oddPrefixSum[i + 1] = oddPrefixSum[i] + (i % 2 == 1 ? A[i] : 0);
+        }
+
+        int specialCount = 0;
+
+        for (int i = 0; i < n; i++) {
+            int evenSumBefore = evenPrefixSum[i];
+            int evenSumAfter = evenPrefixSum[n] - evenPrefixSum[i + 1];
+            int oddSumBefore = oddPrefixSum[i];
+            int oddSumAfter = oddPrefixSum[n] - oddPrefixSum[i + 1];
+
+            // Check if removing the element at index i makes the array balanced
+            if (evenSumBefore + evenSumAfter == oddSumBefore + oddSumAfter) 
+            {
+                specialCount++;
+            }
+        }
+
+        return specialCount;
+        */
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------
+Question - 2 => Pick from both sides!: https://www.interviewbit.com/problems/pick-from-both-sides/
+
+Solution: https://www.interviewbit.com/problems/pick-from-both-sides/
+
+public class Solution {
+    public int solve(int[] A, int B) {
+        
+        int n = A.length;
+        int maxSum = Integer.MIN_VALUE;
+
+        for (int i = 0; i <= B; i++) 
+        {
+            int sum = 0;
+            for (int j = 0; j < i; j++) 
+            {
+                sum += A[j];
+            }
+
+            for (int j = n - 1; j >= n - B + i; j--) 
+            {
+                sum += A[j];
+            }
+
+            maxSum = Math.max(maxSum, sum);
+        }
+
+        return maxSum;
+    }
+    
+}
+------------------------------------------------------------------------------------------------------------------------------------------------
+Question - 3 => Minimum Operations to Make Array Equal: https://leetcode.com/problems/minimum-operations-to-make-array-equal/description/
+
+Solution: https://leetcode.com/problems/minimum-operations-to-make-array-equal/submissions/
+
+class Solution {
+    public int minOperations(int n) {
+        int result = 0;
+        
+        if (n % 2 == 0) 
+        {
+            result = (n / 2) * (n / 2); // (n^2 / 4)
+        } 
+        
+        else 
+        {
+            result = ((n - 1) / 2) * ((n + 1) / 2); // ()(N^2 - 1) / 4)
+        }
+        
+        return result;
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------
+Question - 4 => Range Sum Query - Immutable: https://leetcode.com/problems/range-sum-query-immutable/
+
+Solution: https://leetcode.com/problems/range-sum-query-immutable/submissions/
+
+class NumArray {
+
+    int num[]; // first we take all vaues of nums in to iour own num array that's why i create it
+    
+    public NumArray(int[] nums) {
+        
+        num = new int[nums.length];
+        int i;
+
+        for(i=0;i<num.length;i++)
+        {
+            num[i] = nums[i];
+        }
+    }
+    
+    public int sumRange(int left, int right) {
+        
+        int i,sum = 0;
+
+        for(i=left;i<=right;i++)
+        {
+            sum+=num[i];
+        }
+
+        return sum;
+    }
+}
+
+/**
+ * Your NumArray object will be instantiated and called as such:
+ * NumArray obj = new NumArray(nums);
+ * int param_1 = obj.sumRange(left,right);
+ */
+------------------------------------------------------------------------------------------------------------------------------------------------
+Question - 5 => Equilibrium Point: https://practice.geeksforgeeks.org/problems/equilibrium-point-1587115620/1?utm_source=gfg&utm_medium=article&utm_campaign=bottom_sticky_on_article
+
+Solution: https://practice.geeksforgeeks.org/problems/equilibrium-point-1587115620/1?utm_source=gfg&utm_medium=article&utm_campaign=bottom_sticky_on_article
+
+//{ Driver Code Starts
+import java.io.*;
+import java.util.*;
+import java.util.stream.*;
+
+class Main {
+
+    public static void main(String[] args) throws IOException {
+        BufferedReader br =
+            new BufferedReader(new InputStreamReader(System.in));
+        int t =
+            Integer.parseInt(br.readLine().trim()); // Inputting the testcases
+        while (t-- > 0) {
+            
+            //taking input n
+            int n = Integer.parseInt(br.readLine().trim());
+            long arr[] = new long[n];
+            String inputLine[] = br.readLine().trim().split(" ");
+            
+            //adding elements to the array
+            for (int i = 0; i < n; i++) {
+                arr[i] = Long.parseLong(inputLine[i]);
+            }
+
+            Solution ob = new Solution();
+            
+            //calling equilibriumPoint() function
+            System.out.println(ob.equilibriumPoint(arr, n));
+        }
+    }
+}
+// } Driver Code Ends
+
+// my actual code is started from here
+class Solution {
+    // a: input array
+    // n: size of array
+    // Function to find equilibrium point in the array.
+    
+    public static int equilibriumPoint(long arr[], int n) {
+
+        // Your code here
+        
+        if(n==1)
+        {
+            return 1;
+        }
+        
+        long PFsum[] = new long[n];
+        
+        PFsum[0] = arr[0];
+        
+        for(int i=1;i<n;i++)
+        {
+            PFsum[i] = PFsum[i-1] + arr[i];
+        }
+        
+        
+        long leftsum=0,rightsum=0;
+        
+        for(int i=1;i<n;i++)
+        {
+            leftsum = PFsum[i-1];
+            rightsum = PFsum[n-1] - PFsum[i];
+            
+            if(leftsum==rightsum)
+            {
+                return i+1;
+            }
+        }
+        
+        return -1;
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------
+Question - 6 => Product of Array Except Self: https://leetcode.com/problems/product-of-array-except-self/description/
+
+Solution: // simple test casses are passed but other are exced the time limit
+
+class Solution {
+
+    public static int multiplication(int[] nums,int index)
+    {
+        int i,mul = 1;
+
+        for(i=0;i<nums.length;i++)
+        {
+            if(i==index)
+            {
+                continue;
+            }
+            mul = mul * nums[i];
+        }
+
+        return mul;
+    }
+
+    public int[] productExceptSelf(int[] nums) {
+        
+        int n = nums.length;
+        int product[] = new int[n];
+
+        for(int i=0;i<n;i++)
+        {
+            product[i] = multiplication(nums,i);
+        }
+
+        return product;
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------
