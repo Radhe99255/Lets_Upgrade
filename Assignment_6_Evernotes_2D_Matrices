@@ -27,9 +27,587 @@ class Solution {
 ------------------------------------------------------------------------------------------------------------------------------------------------
 Question - 2 => Rotate Image: https://leetcode.com/problems/rotate-image/description/ 
 
+Solution: https://leetcode.com/problems/rotate-image/submissions/
+
+class Solution {
+    public void rotate(int[][] matrix) {
+        int rows = matrix.length;
+        int cols = matrix[0].length;
+
+        for(int i=0;i<rows;i++)
+        {
+            for(int j=i;j<cols;j++)
+            {
+                int temp = matrix[i][j];
+                matrix[i][j] = matrix[j][i];
+                matrix[j][i] = temp;
+            }
+        }
+
+        // Swap Columns
+        int col1 = 0;
+        int col2 = matrix.length-1;
+        while (col1<col2)
+        {
+            for (int i = 0; i < matrix.length; i++) 
+            {
+                int temp = matrix[i][col1];
+                matrix[i][col1] = matrix[i][col2];
+                matrix[i][col2] = temp;
+            }
+            col1++;
+            col2--;
+        }
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------
+Question - 3 => Spiral Matrix II: https://leetcode.com/problems/spiral-matrix-ii/description/
+
+Solution: https://leetcode.com/problems/spiral-matrix-ii/submissions/
+
+class Solution {
+    public int[][] generateMatrix(int n) {
+        // Create a matrix of size n x n
+        int[][] matrix = new int[n][n];
+
+        // Handle the special case when n is 1
+        if (n == 1) {
+            matrix[0][0] = 1;
+            return matrix;
+        }
+
+        int row = 0; // Initialize the starting row
+        int col = 0; // Initialize the starting column
+        int count = 1; // Initialize the value to fill in the matrix
+
+        while (n > 0) {
+            // If only one cell remains, fill it and break
+            if (n == 1) {
+                matrix[row][col] = count;
+                break;
+            }
+
+            // Move right and fill values
+            for (int k = 0; k < n - 1; k++) {
+                matrix[row][col++] = count++;
+            }
+            // Move down and fill values
+            for (int k = 0; k < n - 1; k++) {
+                matrix[row++][col] = count++;
+            }
+            // Move left and fill values
+            for (int k = 0; k < n - 1; k++) {
+                matrix[row][col--] = count++;
+            }
+            // Move up and fill values
+            for (int k = 0; k < n - 1; k++) {
+                matrix[row--][col] = count++;
+            }
+
+            // Adjust pointers and decrease the size for the next layer
+            row++;
+            col++;
+            n -= 2;
+        }
+        
+        return matrix; // Return the generated matrix
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------
+Question - 4 => Transpose Matrix: https://leetcode.com/problems/transpose-matrix/description/
+
+Solution: https://leetcode.com/problems/transpose-matrix/submissions/
+
+class Solution {
+    public int[][] transpose(int[][] matrix) {
+        int rows = matrix.length;
+        int cols = matrix[0].length;
+        
+        // Original matrix is MxN but the transposed matrix will be NxM 
+        int[][] transposedMatrix = new int[cols][rows];
+        for (int i = 0; i < rows; i++) 
+        {
+            for (int j = 0; j < cols; j++) 
+            {
+                transposedMatrix[j][i] = matrix[i][j];
+            }
+        }
+        
+        return transposedMatrix;
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------
+Question - 5 => Set Matrix Zeroes: https://leetcode.com/problems/set-matrix-zeroes/description/
+
+Solution: https://leetcode.com/problems/set-matrix-zeroes/submissions/
+
+class Solution {
+
+    public void setZeroes(int[][] matrix) {
+        
+        int m=matrix.length;
+        int n=matrix[0].length;
+        int rowsArray[]= new int[m];
+        int colsArray[]= new int[n];
+        
+        Arrays.fill(rowsArray,1);
+        Arrays.fill(colsArray,1);
+        
+        for(int i=0;i<m;i++)
+        {
+            for(int j=0;j<n;j++)
+            {
+                if(matrix[i][j]==0)
+                {
+                    rowsArray[i]=0;
+                    colsArray[j]=0;
+                }
+            }
+        }
+        
+        for(int i=0;i<m;i++)
+        {
+            for(int j=0;j<n;j++)
+            {
+                if(rowsArray[i]==0 || colsArray[j]==0)
+                {
+                    matrix[i][j]=0;
+                }
+            }
+        }
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------
+Question - 6 => Anti Diagonals: https://www.interviewbit.com/problems/anti-diagonals/
+
 Solution: 
 ------------------------------------------------------------------------------------------------------------------------------------------------
-Question - 3 => Rotate Image: https://leetcode.com/problems/rotate-image/description/ 
+Question - 7 => Problem Description
+
+You are given two matrices A & B of same size, you have to return another matrix which is the sum of A and B.Note: Matrices are of same size means the number of rows and number of columns of both matrices are equal.
+The Following will give you an idea of matrix addition:
+Problem Constraints
+1 <= A.size(), B.size() <= 1000 1 <= A[i].size(), B[i].size() <= 1000 1 <= A[i][j], B[i][j] <= 1000
+Input Format
+The first argument is the 2D integer array A The second argument is the 2D integer array B
+Output Format
+You have to return a vector of vector of integers after doing required operations.
+Example Input
+
+Input 1:
+A = [[1, 2, 3], 
+    [4, 5, 6], 
+    [7, 8, 9]] 
+
+B = [[9, 8, 7], 
+    [6, 5, 4], 
+    [3, 2, 1]]
+Input 2:
+A = [[1, 2, 3], 
+    [4, 1, 2], 
+    [7, 8, 9]] 
+
+B = [[9, 9, 7], 
+    [1, 2, 4], 
+    [4, 6, 3]]
+Example Output
+
+Output 1:
+[[10, 10, 10], 
+[10, 10, 10], 
+[10, 10, 10]]
+Output 2:
+[[10, 11, 10], 
+[5,  3,  6], 
+[11, 14, 12]]
+Example Explanation
+
+Explanation 1:
+A + B = [[1+9, 2+8, 3+7], 
+        [4+6, 5+5, 6+4], 
+        [7+3, 8+2, 9+1]] 
+      = [[10, 10, 10], 
+        [10, 10, 10], 
+        [10, 10, 10]].
+Explanation 2:
+A + B = [[1+9, 2+9, 3+7], 
+        [4+1, 1+2, 2+4], 
+        [7+4, 8+6, 9+3]] 
+      = [[10, 11, 10], 
+        [5,  3,  6], 
+        [11, 14, 12]].
 
 Solution: 
 
+import java.util.Scanner;
+
+public class Solution {
+
+    public static int[][] addMatrices(int[][] A, int[][] B) 
+    {
+        int n = A.length;
+        int m = A[0].length;
+        int[][] result = new int[n][m];
+
+        for (int i = 0; i < n; i++) 
+        {
+            for (int j = 0; j < m; j++) 
+            {
+                result[i][j] = A[i][j] + B[i][j];
+            }
+        }
+
+        return result;
+    }
+
+
+    public static void printMatrix(int[][] matrix) 
+    {
+        for (int i = 0; i < matrix.length; i++) 
+        {
+            for (int j = 0; j < matrix[i].length; j++) 
+            {
+                System.out.print(matrix[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+
+    public static void main(String[] args) {
+
+        // you can enter yours array here
+        int[][] A = {
+            {1, 2, 3},
+            {4, 5, 6},
+            {7, 8, 9}
+        };
+
+        int[][] B = {
+            {9, 8, 7},
+            {6, 5, 4},
+            {3, 2, 1}
+        };
+
+        int[][] result = addMatrices(A, B);
+        printMatrix(result);
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------
+Question - 8 => Problem Description
+
+You are given two integer matrices A and B having same size(Both having same number of rows (N) and columns (M). You have to subtract matrix B from A and return the resultant matrix. (i.e. return the matrix A - B).
+If A and B are two matrices of the same order (same dimensions). Then A - B is a matrix of the same order as A and B and its elements are obtained by doing an element wise subtraction of A from B.
+
+Problem Constraints
+1 <= N, M <= 103
+-109 <= A[i][j], B[i][j] <= 109
+
+Input Format
+The first argument is the 2D integer array AThe second argument is the 2D integer array B
+
+Output Format
+Return a 2D matrix denoting A - B.
+
+Example Input
+Input 1:
+
+A =  [[1, 2, 3],
+      [4, 5, 6],
+      [7, 8, 9]]
+
+B =  [[9, 8, 7],
+      [6, 5, 4],
+      [3, 2, 1]]
+
+Input 2:
+
+A = [[1, 1]]
+B = [[2, 3]]
+
+Example Output
+Output 1:
+
+[[-8, -6, -4],
+  [-2, 0, 2],
+  [4, 6, 8]]
+
+Output 2:
+[[-1, -2]]
+
+Example Explanation
+Explanation 1:
+
+Explanation 2:
+
+[[1, 1]] - [[2, 3]] = [[1 - 2, 1 - 3]] = [[-1, -2]]
+
+Solution: 
+import java.util.Scanner;
+
+public class Solution {
+
+    public static int[][] subtractMatrices(int[][] A, int[][] B) 
+    {
+        int n = A.length;
+        int m = A[0].length;
+        int[][] result = new int[n][m];
+
+        for (int i = 0; i < n; i++) 
+        {
+            for (int j = 0; j < m; j++) 
+            {
+                result[i][j] = A[i][j] - B[i][j];
+            }
+        }
+
+        return result;
+    }
+
+    public static void printMatrix(int[][] matrix) 
+    {
+        for (int i = 0; i < matrix.length; i++) 
+        {
+            for (int j = 0; j < matrix[i].length; j++) 
+            {
+                System.out.print(matrix[i][j] + "  ");
+            }
+            System.out.println();
+        }
+    }
+
+    public static void main(String[] args) {
+
+        // you can enter your matrices here
+        int[][] A1 = {
+            {1, 2, 3},
+            {4, 5, 6},
+            {7, 8, 9}
+        };
+
+        int[][] B1 = {
+            {9, 8, 7},
+            {6, 5, 4},
+            {3, 2, 1}
+        };
+
+        int[][] result = subtractMatrices(A1, B1);
+        printMatrix(result);
+
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------
+Question - 9 => Problem Description
+You are given a 2D integer matrix A, return a 1D integer array containing column-wise sums of original matrix.
+
+Problem Constraints
+1 <= A.size() <= 103
+1 <= A[i].size() <= 103
+1 <= A[i][j] <= 103
+
+Input Format
+First argument is a 2D array of integers.(2D matrix).
+
+Output Format
+Return an array conatining column-wise sums of original matrix.
+
+Example Input
+Input 1:
+[1,2,3,4]
+[5,6,7,8]
+[9,2,3,4]
+
+Example Output
+
+Output 1:
+{15,10,13,16}
+
+Example Explanation
+Explanation 1
+
+Column 1 = 1+5+9 = 15
+Column 2 = 2+6+2 = 10
+Column 3 = 3+7+3 = 13
+Column 4 = 4+8+4 = 16
+
+
+Solution: 
+
+import java.util.Scanner;
+
+public class Solution {
+
+    public static int[] getColumnSums(int[][] A) 
+    {
+        int numRows = A.length;
+        int numCols = A[0].length;
+        int[] columnSums = new int[numCols];
+
+        for (int j = 0; j < numCols; j++) 
+        {
+            for (int i = 0; i < numRows; i++) 
+            {
+                columnSums[j] += A[i][j];
+            }
+        }
+
+        return columnSums;
+    }
+    public static void main(String[] args) {
+
+        // use your matrix here
+        int[][] A = {
+            {1, 2, 3, 4},
+            {5, 6, 7, 8},
+            {9, 2, 3, 4}
+        };
+
+        int[] columnSums = getColumnSums(A);
+
+        for (int sum : columnSums) 
+        {
+            System.out.print(sum + " ");
+        }
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------
+Question - 10 => Problem Description
+
+You are given a 2D integer matrix A, return a 1D integer array containing row-wise sums of original matrix.
+Problem Constraints
+1 <= A.size() <= 103
+1 <= A[i].size() <= 103
+1 <= A[i][j] <= 103
+
+Input Format
+First argument A is a 2D array of integers.(2D matrix).
+
+Output Format
+Return an array conatining row-wise sums of original matrix.
+
+Example Input
+Input 1:
+[1,2,3,4]
+[5,6,7,8]
+[9,2,3,4]
+
+Example Output
+Output 1:
+[10,26,18]
+
+Example Explanation
+Explanation 1
+Row 1 = 1+2+3+4 = 10
+Row 2 = 5+6+7+8 = 26
+Row 3 = 9+2+3+4 = 18
+
+Solution: 
+import java.util.Scanner;
+
+public class Solution {
+
+    public static int[] getRowSums(int[][] A) 
+    {
+        int numRows = A.length;
+        int[] rowSums = new int[numRows];
+
+        for (int i = 0; i < numRows; i++) 
+        {
+            for (int j = 0; j < A[i].length; j++) 
+            {
+                rowSums[i] += A[i][j];
+            }
+        }
+
+        return rowSums;
+    }
+
+    public static void main(String[] args) {
+        
+        int[][] A = {
+            {1, 2, 3, 4},
+            {5, 6, 7, 8},
+            {9, 2, 3, 4}
+        };
+
+        int[] rowSums = getRowSums(A);
+
+        for (int sum : rowSums) 
+        {
+            System.out.print(sum + " ");
+        }
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------
+Question - 11 => Main Diagonal Sum
+
+Problem Description
+You are given a N X Ninteger matrix. You have to find the sum of all the main diagonal elements of A.
+Main diagonal of a matrix Ais a collection of elements A[i, j]such that i = j.
+
+Problem Constraints
+1 <= N<= 103
+-1000 <= A[i][j]<= 1000
+
+Input Format
+There are 1 lines in the input. First 2 integers R, C are the number of rows and columns. Then R * C integers follow corresponding to the rowwise numbers in the 2D array A.
+
+Output Format
+Return an integer denoting the sum of main diagonal elements.
+
+Example Input
+Input 1:
+3 3 1 -2 -3 -4 5 -6 -7 -8 9
+
+Input 2:
+2 2 3 2 2 3
+
+Example Output
+Output 1:
+15
+Output 2:
+6
+
+Example Explanation
+Explanation 1:
+
+The size of matrix is 3.
+So, considering the indexing from 0.
+Main diagonal elements will be A[0][0], A[1][1] and A[2][2]
+A[1][1] + A[2][2] + A[3][3] = 1 + 5 + 9 = 15
+Explanation 2:
+
+The size of matrix is 2.
+So, considering the indexing from 0.
+Main diagonal elements will be A[0][0] and A[1][1].
+A[1][1] + A[2][2] = 3 + 3 = 6
+Solution:
+import java.util.Scanner;
+
+public class Solution {
+
+    public static int findMainDiagonalSum(int[][] matrix) 
+    {
+        int sum = 0;
+        int n = matrix.length; // Assuming square matrix, so rows = columns
+
+        for (int i = 0; i < n; i++) 
+        {
+            sum += matrix[i][i]; // Summing the main diagonal elements (i, i)
+        }
+
+        return sum;
+    }
+
+    public static void main(String[] args) {
+        
+        int[][] matrix1 = {
+            {1, -2, -3},
+            {-4, 5, -6},
+            {-7, -8, 9}
+        };
+        int sum = findMainDiagonalSum(matrix1);
+
+        System.out.println("Sum of the main diagonal elements in matrix1: " + sum);
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------
