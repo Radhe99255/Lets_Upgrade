@@ -6,8 +6,30 @@ Date: 18/10/2023
 ------------------------------------------------------------------------------------------------------------------------------------------------
 Question - 1 => Matrix Diagonal Sum: https://leetcode.com/problems/matrix-diagonal-sum/description/
 
-Solution: 
+Solution: https://leetcode.com/problems/matrix-diagonal-sum/submissions/
+
+class Solution {
+    public int diagonalSum(int[][] mat) {
+       int sum=0,n=mat.length;
+
+        for(int i=0;i<n;i++)
+        {
+            sum=sum+mat[i][i];
+            if(i!=n-i-1)
+            {
+                sum+=mat[i][n-i-1];
+            }
+        }
+        
+        return sum;
+    }
+}
 ------------------------------------------------------------------------------------------------------------------------------------------------
-Question - 2 => : 
+Question - 2 => Rotate Image: https://leetcode.com/problems/rotate-image/description/ 
 
 Solution: 
+------------------------------------------------------------------------------------------------------------------------------------------------
+Question - 3 => Rotate Image: https://leetcode.com/problems/rotate-image/description/ 
+
+Solution: 
+
