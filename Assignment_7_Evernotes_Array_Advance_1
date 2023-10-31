@@ -1,7 +1,165 @@
 Link of evernote & all questions is given below.
 
-Link - https://www.evernote.com/shard/s511/sh/a2ac8bae-6956-b56f-f8dc-a3be8e5e844e/AF3idG4g2pIqBH_enNcCYy5uzl7v943frFuZ1ELmyZR2VRWL3F7KQ3Mm-A
+Link - https://www.evernote.com/shard/s511/sh/dbfd5e12-d416-8179-5dab-8ef38cd99ca9/JkCHM3bXx6usmHeVbc14OYLzT7DWGRwRte6bIF_GARzmVPBg7Spk8HIjpA
 
-Date: 18/10/2023
+Date: 20/10/2023
 ------------------------------------------------------------------------------------------------------------------------------------------------
-Question - 1 => Matrix Diagonal Sum: https://leetcode.com/problems/matrix-diagonal-sum/description/
+Question - 1 => Trapping Rain Water: https://leetcode.com/problems/trapping-rain-water/description/
+
+Solution: https://leetcode.com/problems/trapping-rain-water/submissions/
+
+class Solution {
+    public int trap(int[] height) {
+        int left = 0, right = height.length - 1;
+        int leftMax = height[0], rightMax = height[height.length - 1];
+        int water = 0;
+
+        while (left < right) 
+        {
+            if (leftMax < rightMax) 
+            {
+                left++;
+                if (leftMax < height[left]) 
+                {
+                    leftMax = height[left];
+                } 
+                
+                else 
+                {
+                    water += leftMax - height[left];
+                }
+
+            } 
+            
+            else 
+            {
+                right--;
+                if (rightMax < height[right]) 
+                {
+                    rightMax = height[right];
+                } 
+                
+                else 
+                {
+                    water += rightMax - height[right];
+                }
+            }
+        }
+        
+        return water;
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------
+Question - 2 => Maximum Subarray: https://leetcode.com/problems/maximum-subarray/description/
+
+Solution: https://leetcode.com/problems/maximum-subarray/submissions/
+
+class Solution {
+    public int maxSubArray(int[] nums) {
+        
+        int maxSum = Integer.MIN_VALUE;
+        int currentSum = 0;
+        
+        for (int i = 0; i < nums.length; i++) 
+        {
+            currentSum = currentSum + nums[i];
+            
+            if (currentSum > maxSum)
+            {
+                maxSum = currentSum;
+            }
+            
+            if (currentSum < 0) 
+            {
+                currentSum = 0;
+            }
+        }
+        
+        return maxSum;
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------
+Question - 3 => Max Non Negative SubArray: https://www.interviewbit.com/problems/max-non-negative-subarray/
+
+Solution: https://www.interviewbit.com/problems/max-non-negative-subarray/
+
+public class Solution {
+    public int[] maxset(int[] A) {
+        long maxSum = -1;
+        int maxStart = -1;
+        int maxEnd = -1;
+        
+        long currentSum = 0;
+        int currentStart = 0;
+        
+        for (int i = 0; i < A.length; i++) 
+        {
+            if (A[i] >= 0) 
+            {
+                currentSum += A[i];
+                if (currentSum > maxSum) 
+                {
+                    maxSum = currentSum;
+                    maxStart = currentStart;
+                    maxEnd = i;
+                } 
+                
+                else if (currentSum == maxSum) 
+                {
+                    if (i - currentStart > maxEnd - maxStart) 
+                    {
+                        maxStart = currentStart;
+                        maxEnd = i;
+                    }
+                }
+            } 
+            
+            else 
+            {
+                currentStart = i + 1;
+                currentSum = 0;
+            }
+        }
+        
+        if (maxStart == -1) {
+            return new int[0];
+        } else {
+            int[] result = new int[maxEnd - maxStart + 1];
+            for (int i = maxStart; i <= maxEnd; i++) {
+                result[i - maxStart] = A[i];
+            }
+            return result;
+        }
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------
+Question - 4 => Rotate Array: https://leetcode.com/problems/rotate-array/description/
+
+Solution: https://leetcode.com/problems/rotate-array/submissions/
+
+class Solution {
+
+    public void reverce(int[] nums,int start,int end)
+    {
+        while(start<end)
+        {
+            int temp = nums[start];
+            nums[start] = nums[end];
+            nums[end] = temp;
+            start++;
+            end--;
+        }
+    }
+
+    public void rotate(int[] nums, int k) {
+        
+        k = k%nums.length; // it transform all rotation into minimum intration
+
+        int n = nums.length;
+        
+        reverce(nums, 0, n-1);
+        reverce(nums, 0, k-1);
+        reverce(nums, k, n-1);
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------
