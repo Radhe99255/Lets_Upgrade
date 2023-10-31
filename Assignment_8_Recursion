@@ -1,0 +1,423 @@
+Date: 30/10/2023
+------------------------------------------------------------------------------------------------------------------------------------------------
+Question - 1 => Nth Fibonacci Number :https://practice.geeksforgeeks.org/problems/nth-fibonacci-number1335/1?utm_source=gfg&utm_medium=article&utm_campaign=bottom_sticky_on_article
+
+Solution: 
+class Solution {
+    static int nthFibonacci(int n){
+        
+        if (n == 0 || n == 1) 
+        {
+            return n;
+        }
+        
+        int f1 = 0;
+        int f2 = 1;
+        int f3;
+        
+        for (int i = 2; i <= n; i++) 
+        {
+            f3 = (f1 + f2) % 1000000007;
+            f1 = f2;
+            f2 = f3;
+        }
+        
+        return f2;
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------
+Question - 2 => Power Of Numbers :https://practice.geeksforgeeks.org/problems/power-of-numbers-1587115620/1?utm_source=gfg&utm_medium=article&utm_campaign=bottom_sticky_on_article
+
+Solution: 
+class Solution
+{
+        
+    long power(int N,int R)
+    {
+        if (R == 0) 
+        {
+            return 1;
+        } 
+        
+        else 
+        {
+            long temp = power(N, R / 2);
+            long result = (temp * temp) % 1000000007;
+            
+            if (R % 2 != 0) 
+            {
+                result = (result * N)% 1000000007;
+            }
+            
+            return result;
+        }
+    }
+
+}
+------------------------------------------------------------------------------------------------------------------------------------------------
+Question - 3 => Print reverse of a string using recursion :https://www.geeksforgeeks.org/reverse-a-string-using-recursion/
+
+Solution: 
+// Java program to reverse a string using recursion
+ 
+class StringReverse
+{
+    /* Function to print reverse of the passed string */
+    void reverse(String str)
+    {
+        if ((str==null)||(str.length() <= 1))
+           System.out.println(str);
+        else
+        {
+            System.out.print(str.charAt(str.length()-1));
+            reverse(str.substring(0,str.length()-1));
+        }
+    }
+     
+    /* Driver program to test above function */
+    public static void main(String[] args) 
+    {
+        String str = "Geeks for Geeks";
+        StringReverse obj = new StringReverse();
+        obj.reverse(str);
+    }    
+}
+------------------------------------------------------------------------------------------------------------------------------------------------
+Question - 4 => Factorial : https://practice.geeksforgeeks.org/problems/factorial5739/1?utm_source=gfg&utm_medium=article&utm_campaign=bottom_sticky_on_article
+
+Solution: 
+class Solution{
+    static long factorial(int N){
+        
+        if(N==0)
+        {
+            return 1;
+        }
+        
+        return (N * factorial(N-1));
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------
+Question - 5 => Sum of Array : https://practice.geeksforgeeks.org/problems/sum-of-array2326/1?utm_source=gfg&utm_medium=article&utm_campaign=bottom_sticky_on_article
+
+Solution: 
+class Solution {
+    int sum(int arr[], int n) {
+        
+        int sum1 = 0;
+        
+        for(int i=0;i<n;i++)
+        {
+            sum1 += arr[i];
+        }
+        
+        return sum1;
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------
+Question - 6 => Find the largest three distinct elements in an array : https://www.geeksforgeeks.org/find-the-largest-three-elements-in-an-array/
+
+Solution:
+// Java code to find largest three elements
+// in an array
+
+class PrintLargest {
+	/* Function to print three largest elements */
+	static void print3largest(int arr[], int arr_size)
+	{
+		int i, first, second, third;
+
+		/* There should be atleast three elements */
+		if (arr_size < 3) {
+			System.out.print(" Invalid Input ");
+			return;
+		}
+
+		third = first = second = Integer.MIN_VALUE;
+		for (i = 0; i < arr_size; i++) {
+			/* If current element is greater than
+			first*/
+			if (arr[i] > first) {
+				third = second;
+				second = first;
+				first = arr[i];
+			}
+
+			/* If arr[i] is in between first and
+			second then update second */
+			else if (arr[i] > second) {
+				third = second;
+				second = arr[i];
+			}
+
+			else if (arr[i] > third)
+				third = arr[i];
+		}
+
+		System.out.println("Three largest elements are " + first + " " + second + " " + third);
+	}
+
+	/* Driver program to test above function*/
+	public static void main(String[] args)
+	{
+		int arr[] = { 12, 13, 1, 10, 34, 1 };
+		int n = arr.length;
+		print3largest(arr, n);
+	}
+}
+/*This code is contributed by Prakriti Gupta 
+and edited by Ayush Singla(@ayusin51)*/
+------------------------------------------------------------------------------------------------------------------------------------------------
+Question - 7 => Find Second largest element in an array : https://www.geeksforgeeks.org/find-second-largest-element-array/
+
+Solution:
+// Java program to find second largest 
+// element in an array 
+import java.util.*; 
+class GFG{ 
+
+// Function to print the 
+// second largest elements 
+static void print2largest(int arr[], 
+						int arr_size) 
+{ 
+int i, first, second; 
+
+// There should be 
+// atleast two elements 
+if (arr_size < 2) 
+{ 
+	System.out.printf(" Invalid Input "); 
+	return; 
+} 
+
+// Sort the array 
+Arrays.sort(arr); 
+
+// Start from second last element 
+// as the largest element is at last 
+for (i = arr_size - 2; i >= 0; i--) 
+{ 
+	// If the element is not 
+	// equal to largest element 
+	if (arr[i] != arr[arr_size - 1]) 
+	{ 
+	System.out.printf("The second largest " + 
+						"element is %d\n", arr[i]); 
+	return; 
+	} 
+} 
+
+System.out.printf("There is no second " + 
+					"largest element\n"); 
+} 
+
+// Driver code 
+public static void main(String[] args) 
+{ 
+int arr[] = {12, 35, 1, 10, 34, 1}; 
+int n = arr.length; 
+print2largest(arr, n); 
+} 
+} 
+
+// This code is contributed by gauravrajput1
+------------------------------------------------------------------------------------------------------------------------------------------------
+Question - 8 => Move all zeroes to end of array : https://www.geeksforgeeks.org/move-zeroes-end-array/
+
+Solution:
+/* Java program to push zeroes to back of array */
+import java.io.*; 
+
+class PushZero 
+{ 
+	// Function which pushes all zeros to end of an array. 
+	static void pushZerosToEnd(int arr[], int n) 
+	{ 
+		int count = 0; // Count of non-zero elements 
+
+		// Traverse the array. If element encountered is 
+		// non-zero, then replace the element at index 'count' 
+		// with this element 
+		for (int i = 0; i < n; i++) 
+			if (arr[i] != 0) 
+				arr[count++] = arr[i]; // here count is 
+									// incremented 
+
+		// Now all non-zero elements have been shifted to 
+		// front and 'count' is set as index of first 0. 
+		// Make all elements 0 from count to end. 
+		while (count < n) 
+			arr[count++] = 0; 
+	} 
+
+	/*Driver function to check for above functions*/
+	public static void main (String[] args) 
+	{ 
+		int arr[] = {1, 9, 8, 4, 0, 0, 2, 7, 0, 6, 0, 9}; 
+		int n = arr.length; 
+		pushZerosToEnd(arr, n); 
+		System.out.println("Array after pushing zeros to the back: "); 
+		for (int i=0; i<n; i++) 
+			System.out.print(arr[i]+" "); 
+	} 
+} 
+/* This code is contributed by Devesh Agrawal */
+------------------------------------------------------------------------------------------------------------------------------------------------
+Question - 9 => Print left rotation of array : https://www.geeksforgeeks.org/print-left-rotation-array/
+
+Solution:
+// JAVA implementation of left rotation
+// of an array K number of times
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class arr_rot {
+	// Function to leftRotate array multiple
+	// times
+	static void leftRotate(int arr[], int n, int k)
+	{
+		/* To get the starting point of
+		rotated array */
+		int mod = k % n;
+
+		// Prints the rotated array from
+		// start position
+		for (int i = 0; i < n; ++i)
+			System.out.print(arr[(i + mod) % n] + " ");
+
+		System.out.println();
+	}
+
+	// Driver code
+	public static void main(String[] args)
+	{
+		int arr[] = { 1, 3, 5, 7, 9 };
+		int n = arr.length;
+
+		int k = 2;
+	
+		// Function Call
+		leftRotate(arr, n, k);
+
+		k = 3;
+	
+		// Function Call
+		leftRotate(arr, n, k);
+
+		k = 4;
+	
+		// Function Call
+		leftRotate(arr, n, k);
+	}
+}
+
+// This code is contributed by Sanjal
+------------------------------------------------------------------------------------------------------------------------------------------------
+Question - 10 => Print 1 to n without using loops : https://www.geeksforgeeks.org/print-1-to-n-without-using-loops/
+
+Solution:
+import java.io.*;
+import java.math.*;
+import java.text.*;
+import java.util.*;
+import java.util.regex.*;
+
+class GFG {
+    // Prints numbers from 1 to n
+    static void printNos(int n)
+    {
+        if (n > 0) 
+        {
+            printNos(n - 1);
+            System.out.print(n + " ");
+        }
+        return;
+    }
+
+    // Driver Code
+    public static void main(String[] args)
+    {
+        int n = 10;
+        printNos(n);
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------
+Question - 11 => Print N to 1 without loop : https://www.geeksforgeeks.org/print-n-to-1-without-loop/
+
+Solution:
+import java.io.*;
+import java.math.*;
+import java.text.*;
+import java.util.*;
+import java.util.regex.*;
+
+class GFG {
+    // Prints numbers from N to 1
+    static void printNos(int n)
+    {
+        if (n > 0) {
+            System.out.print(n + " ");
+            printNos(n - 1);
+        }
+        return;
+    }
+
+    // Driver Code
+    public static void main(String[] args)
+    {
+        int n = 10;
+        printNos(n);
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------
+Question - 12 => Recursively remove all adjacent duplicates : https://practice.geeksforgeeks.org/problems/recursively-remove-all-adjacent-duplicates0744/1?utm_source=gfg&utm_medium=article&utm_campaign=bottom_sticky_on_article
+
+Solution:
+class Solution{
+    
+    public boolean isCheck(String s)
+    {
+       for(int i=0;i<s.length()-1;i++)
+       {
+           if(s.charAt(i)==s.charAt(i+1))
+           {
+               return false;
+           }
+       }
+       return true;
+    }
+   
+    String rremove(String s) {
+    
+        StringBuilder sb = new StringBuilder(s);
+    
+        while(!isCheck(sb.toString()))
+        {
+            int i=0;
+            int j=1;
+                
+            while(i<sb.length()-1 && j<sb.length())
+            {
+                if(sb.charAt(i)!=sb.charAt(j))
+                {
+                    i++;
+                    j++;
+                }
+                else
+                {
+                    while(j<sb.length() && sb.charAt(j)==sb.charAt(i))
+                    {
+                        j++;
+                    }
+                    sb.delete(i,j);
+                    j=i+1;
+                }
+            }
+        }
+        
+        return sb.toString();
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------
