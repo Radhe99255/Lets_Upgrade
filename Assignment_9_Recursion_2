@@ -2,15 +2,76 @@ Date: 1/11/2023
 ------------------------------------------------------------------------------------------------------------------------------------------------
 Question - 1 => Tower Of Hanoi : https://practice.geeksforgeeks.org/problems/tower-of-hanoi-1587115621/1?utm_source=gfg&utm_medium=article&utm_campaign=bottom_sticky_on_article
 
-Solution: 
-------------------------------------------------------------------------------------------------------------------------------------------------
-Question - 2 => K-th Symbol in Grammar : https://leetcode.com/problems/k-th-symbol-in-grammar/
+Solution: https://practice.geeksforgeeks.org/problems/tower-of-hanoi-1587115621/1?utm_source=gfg&utm_medium=article&utm_campaign=bottom_sticky_on_article
 
-Solution: 
+class Hanoi {
+
+    public long toh(int N, int from, int to, int aux) {
+        
+        if(N==0) 
+        {
+			return 1;
+		}
+		
+		toh(N-1,from,aux,to);     
+		
+		System.out.println("move disk "+N+" from rod " +from +" to rod "+to);
+		
+		toh(N-1,aux,to,from);
+        
+        return (long) (Math.pow(2, N) - 1);
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------
+Question - 2 => K-th Symbol in Grammar: https://leetcode.com/problems/k-th-symbol-in-grammar/
+
+Solution: https://leetcode.com/problems/k-th-symbol-in-grammar/submissions/
+
+class Solution {
+    public int kthGrammar(int n, int k) {
+        
+        if (n == 1) 
+        {
+            return 0;
+        }
+
+        if (k % 2 == 0) 
+        {
+            return kthGrammar(n - 1, k / 2) == 0 ? 1 : 0;
+        } 
+        
+        else 
+        {
+            return kthGrammar(n - 1, (k + 1) / 2) == 0 ? 0 : 1;
+        }
+    }
+}
 ------------------------------------------------------------------------------------------------------------------------------------------------
 Question - 3 => Gray Code : https://leetcode.com/problems/gray-code/
 
-Solution: 
+Solution: https://leetcode.com/problems/gray-code/submissions/
+
+class Solution {
+    public List<Integer> grayCode(int n) {
+        
+        List<Integer> list = new ArrayList<>();
+        
+        list.add(0);
+
+        for(int i = 1; i <= n; i++)
+        {
+            List<Integer> rev = new ArrayList<>(list);
+            Collections.reverse(rev);
+            
+            int val = (int)Math.pow(2,i-1);
+            
+            for(int v : rev) list.add(v+val);
+
+        }
+        
+        return list;
+    }
+}
 ------------------------------------------------------------------------------------------------------------------------------------------------
 Question - 4 => Sqrt(x) : https://leetcode.com/problems/sqrtx/
 
