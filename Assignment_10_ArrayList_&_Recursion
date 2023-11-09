@@ -1,0 +1,104 @@
+Date: 3/11/2023
+------------------------------------------------------------------------------------------------------------------------------------------------
+Question - 1 => ArrayList Operation : https://practice.geeksforgeeks.org/problems/arraylist-operation/0
+
+Solution: 
+class Geeks
+{
+    // Function to insert element
+    public static void insert(ArrayList<Character> clist, char c)
+    {
+        
+        //add c to clist
+        clist.add(c);
+    }
+    
+    // Function to count frequency of element
+    public static void freq(ArrayList<Character> clist, char c)
+    {
+     
+        if(clist.contains(c))
+        System.out.println(Collections.frequency(clist,c));
+        else
+        System.out.println("Not Present");
+        
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------
+Question - 2 => Search in a row-column sorted Matrix: https://practice.geeksforgeeks.org/problems/search-in-a-matrix-1587115621/1?utm_source=gfg&utm_medium=article&utm_campaign=bottom_sticky_on_article
+
+Solution: 
+
+class Solution 
+{ 
+    //Function to search a given number in row-column sorted matrix.
+	static boolean search(int matrix[][], int n, int m, int x) 
+	{ 
+	    // code here
+	    
+	    // we use the information of soted order
+	    // we started from top right corner 
+	    int i = 0;
+	    int j = m-1;
+	    
+	    while(i<n && j>0)
+	    {
+	        if(x == matrix[i][j])
+	        {
+	            return true;
+	        }
+	        
+	        else if(x < matrix[i][j])
+	        {
+	            j--;
+	        }
+	        
+	        else if(x > matrix[i][j])
+	        {
+	            i++;
+	        }
+	    }
+	    
+	    return false;
+	} 
+} 
+------------------------------------------------------------------------------------------------------------------------------------------------
+Question - 3 => Range Sum Query 2D - Immutable: https://leetcode.com/problems/range-sum-query-2d-immutable/submissions/
+
+Solution: 
+
+class NumMatrix {
+
+    int[][] prefixSum;
+
+    public NumMatrix(int[][] matrix) 
+    {
+        if (matrix == null) 
+        {
+            throw new IllegalArgumentException("Input matrix is null");
+        }
+
+        int m = matrix.length;
+        int n = matrix[0].length;
+        prefixSum = new int[m + 1][n + 1];
+
+        for (int i = 1; i <= m; i++) 
+        {
+            for (int j = 1; j <= n; j++) 
+            {
+                prefixSum[i][j] = prefixSum[i - 1][j] + prefixSum[i][j - 1] - prefixSum[i - 1][j - 1]
+                        + matrix[i - 1][j - 1];
+            }
+        }
+    }
+
+    public int sumRegion(int row1, int col1, int row2, int col2) 
+    {
+        return prefixSum[row2 + 1][col2 + 1] - prefixSum[row2 + 1][col1] - prefixSum[row1][col2 + 1]
+                + prefixSum[row1][col1];
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------
+Question - 4 => Range Sum Query 2D - Immutable: https://leetcode.com/problems/range-sum-query-2d-immutable/submissions/
+
+Solution: 
