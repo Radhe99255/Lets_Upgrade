@@ -428,34 +428,45 @@ public class Solution {
 
 Question - 15 - Solution : Is It Perfect? 1
 
-# Function to check if a number is perfect
-def is_perfect_number(N):
-    if N <= 1:
-        return False
+import java.io.*;
+import java.util.*;
 
-    # Initialize the sum of divisors to 1 (1 is always a divisor)
-    divisor_sum = 1
+public class Solution {
 
-    # Find all divisors of N and add them to the sum
-    for i in range(2, int(N**0.5) + 1):
-        if N % i == 0:
-            divisor_sum += i
-            if i != N // i:  # Avoid counting the same divisor twice
-                divisor_sum += N // i
-
-    # Check if the sum of divisors equals N
-    return divisor_sum == N
-
-# Input the number of test cases
-T = int(input())
-
-# Iterate through each test case
-for _ in range(T):
-    N = int(input())
-    if is_perfect_number(N):
-        print("YES")
-    else:
-        print("NO")
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        
+        Scanner sc = new Scanner(System.in);
+        
+        // Read the number of test cases
+        int t = sc.nextInt();
+        
+        // Loop for each test case
+        for (int i = 0; i < t; i++) {
+            int n = sc.nextInt();
+            int sum = 0;
+            
+            // Find the sum of proper divisors of n
+            for (int j = 1; j * j <= n; j++) {
+                if (n % j == 0) {
+                    sum += j;
+                    
+                    // Add the corresponding divisor (if it's not the same)
+                    if (j != 1 && j != n / j) {
+                        sum += n / j;
+                    }
+                }
+            }
+            
+            // Check if the number is perfect
+            if (sum == n) {
+                System.out.println("YES");
+            } else {
+                System.out.println("NO");
+            }
+        }
+    }
+}
 ------------------------------------------------------------------------------------------------------------------------------------------------
 
 Question - 16 - Solution : Count the digits 2
